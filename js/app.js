@@ -167,37 +167,60 @@ const util = (() => {
     const animation = () => {
         const duration = 15 * 1000;
         const animationEnd = Date.now() + duration;
-        const colors = ["#FFC0CB", "#FF1493", "#C71585"];
+        // const colors = ["#FFC0CB", "#FF1493", "#C71585"];
+        const colors = ["#ffffff"];
 
         const randomInRange = (min, max) => {
             return Math.random() * (max - min) + min;
         };
 
-        const heart = confetti.shapeFromPath({
-            path: 'M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z',
-            matrix: [0.03333333333333333, 0, 0, 0.03333333333333333, -5.566666666666666, -5.533333333333333]
-        });
+        // const heart = confetti.shapeFromPath({
+        //     path: 'M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z',
+        //     matrix: [0.03333333333333333, 0, 0, 0.03333333333333333, -5.566666666666666, -5.533333333333333]
+        // });
+
+        
 
         (function frame() {
             const timeLeft = animationEnd - Date.now();
 
-            colors.forEach((color) => {
-                confetti({
-                    particleCount: 1,
-                    startVelocity: 0,
-                    ticks: Math.max(50, 100 * (timeLeft / duration)),
-                    origin: {
-                        x: Math.random(),
-                        y: Math.abs(Math.random() - (timeLeft / duration)),
-                    },
-                    zIndex: 1057,
-                    colors: [color],
-                    shapes: [heart],
-                    drift: randomInRange(-0.5, 0.5),
-                    gravity: randomInRange(0.5, 1),
-                    scalar: randomInRange(0.5, 1),
-                });
+            const ticks = Math.max(200, 500 * (timeLeft / duration)); // Ajusta para más tiempo en el aire
+            let skew = Math.max(0.8, 1 - 0.001 * (duration - timeLeft) / duration); // Ajusta skew basado en el tiempo restante
+
+            // Uso de 'circle' para simular copos de nieve, ajustando otros parámetros para el efecto deseado
+            confetti({
+                particleCount: 1,
+                startVelocity: 0,
+                ticks: ticks,
+                origin: {
+                    x: Math.random(),
+                    // Ajuste para que los 'copos de nieve' comiencen más hacia arriba y tengan una caída más natural
+                    y: (Math.random() * skew) - 0.2
+                },
+                colors: colors,
+                shapes: ['circle'], // Usamos círculos para simular copos de nieve
+                gravity: randomInRange(0.2, 0.4), // Gravedad más baja para una caída más suave, como nieve
+                scalar: randomInRange(0.5, 0.8), // Escala más pequeña para simular copos de nieve más realistas
+                drift: randomInRange(-0.5, 0.5) // Deriva para simular el movimiento lateral de la caída de nieve
             });
+
+            // colors.forEach((color) => {
+            //     confetti({
+            //         particleCount: 1,
+            //         startVelocity: 0,
+            //         ticks: Math.max(50, 100 * (timeLeft / duration)),
+            //         origin: {
+            //             x: Math.random(),
+            //             y: Math.abs(Math.random() - (timeLeft / duration)),
+            //         },
+            //         zIndex: 1057,
+            //         colors: [color],
+            //         shapes: [heart],
+            //         drift: randomInRange(-0.5, 0.5),
+            //         gravity: randomInRange(0.5, 1),
+            //         scalar: randomInRange(0.5, 1),
+            //     });
+            // });
 
             if (timeLeft > 0) {
                 requestAnimationFrame(frame);
@@ -219,10 +242,25 @@ const util = (() => {
         document.getElementById('tombol-musik').style.display = 'block';
         timer();
 
-        confetti({
-            origin: { y: 0.9 },
-            zIndex: 1057
-        });
+        
+        
+        // confetti({
+        //     origin: { y: 0.9 },
+        //     zIndex: 1057
+        // });
+        // Explosión de confeti que simula nieve
+    confetti({
+        particleCount: 100, // Aumenta el conteo de partículas para una explosión más densa
+        spread: 70, // Ajusta el ángulo de dispersión para la explosión
+        origin: { y: 0.9 }, // Origen ligeramente más arriba del centro para simular la caída
+        startVelocity: 30, // Velocidad inicial más alta para la explosión
+        colors: ['#ffffff'], // Copos de nieve blancos
+        shapes: ['circle'], // Forma circular para simular copos de nieve
+        gravity: 0.5, // Gravedad para simular la caída de la nieve después de la explosión
+        scalar: 0.5, // Tamaño más pequeño para simular copos de nieve
+        drift: Math.random() * 0.4 - 0.2, // Deriva para simular el movimiento lateral
+        zIndex: 1057 // Z-index como en tu configuración original
+    });
         await session.check();
         animation();
     };
