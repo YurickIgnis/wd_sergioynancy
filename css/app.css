@@ -166,6 +166,9 @@ footer {
     .timeline:before {
       margin-left: -64px;
     }
+
+
+ 
   }
   
   .timeline>li {
@@ -220,6 +223,19 @@ footer {
   }
   
   @media screen and (max-width: 480px) {
+
+    .carousel-inner {
+      width: 320px;
+      height: 320px;
+      overflow: hidden;
+      margin: auto; 
+  }
+  
+  .carousel-item img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover; 
+  }
     .timeline>li>.timeline-panel {
       width: 75% !important;
     }
@@ -345,13 +361,13 @@ footer {
     width: 320px;
     height: 320px;
     overflow: hidden;
-    margin: auto; /* Centra el carrusel si la pantalla es más ancha */
+    margin: auto; 
 }
 
 .carousel-item img {
     width: 320px;
     height: 320px;
-    object-fit: cover; /* Cubre el área del contenedor sin perder la proporción. Puede recortar partes de la imagen */
+    object-fit: cover; 
 }
 
 
