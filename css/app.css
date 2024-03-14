@@ -22,6 +22,22 @@ body {
     font-family: 'Noto Naskh Arabic', serif !important;
     color: #ffffff !important;
 }
+.font-century {
+    font-family: 'century-gothic', serif !important;
+    color: #ffffff !important;
+}
+.font-century-dark {
+    font-family: 'century-gothic', serif !important;
+    color: #000000 !important;
+}
+.font-blueprint {
+    font-family: 'blueprint', serif !important;
+    color: #ffffff !important;
+}
+.font-blueprint-dark {
+    font-family: 'blueprint', serif !important;
+    color: #000000 !important;
+}
 .font-arabic-dark {
     font-family: 'Noto Naskh Arabic', serif !important;
     color: #000000 !important;
@@ -314,7 +330,7 @@ footer {
   .date {
     display: block;
     margin-bottom: 20px;
-    font-size: 13px;
+    font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
@@ -453,7 +469,7 @@ footer {
 
 .overlay2 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center; /* Centra el contenido verticalmente */
   position: relative;
   width: 100%;
@@ -489,8 +505,17 @@ footer {
       background-image: url('../assets/images/9.jpeg'); /* Cambiamos la imagen de fondo para pantallas grandes */
   }
   .overlay2 {
-      background-image: url('../assets/images/9.jpeg'); /* Cambiamos la imagen de fondo para pantallas grandes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Usa min-height para asegurar que cubra la altura de la pantalla */
+    background-image: url('../assets/images/9.jpeg'); /* Cambiamos la imagen de fondo para pantallas grandes */
+    background-size: cover;
+    background-position: center center; /* Centra la imagen de fondo */
   }
+  
   .text-center2 {
     position: relative;
     z-index: 2;
@@ -499,4 +524,38 @@ footer {
     padding-right: 10%;
     text-align: center!important;
   }
+  #home svg {
+    display: block; /* Asegura que el SVG use todo el ancho disponible */
+    position: relative !important; /* Posicionamiento absoluto dentro de su contenedor */
+    bottom: 0; /* Alinea el SVG al fondo del contenedor */
+    left: 0; /* Alinea el SVG a la izquierda del contenedor */
+  }
+
+  .invitacion{
+    padding-bottom: 20% !important;
+  }
+}
+
+
+
+
+#home svg {
+  display: block; /* Asegura que el SVG use todo el ancho disponible */
+  width: 100%; /* Estira el SVG para que cubra el ancho del contenedor */
+  height: auto; /* Mantiene la proporción del SVG */
+  position: absolute; /* Posicionamiento absoluto dentro de su contenedor */
+  bottom: 0; /* Alinea el SVG al fondo del contenedor */
+  left: 0; /* Alinea el SVG a la izquierda del contenedor */
+}
+
+
+
+.overlay2 {
+  position: relative; /* Establece la referencia para el posicionamiento absoluto del SVG */
+  overflow: hidden; /* Previene cualquier desbordamiento del SVG fuera del contenedor */
+}
+
+
+.invitacion{
+  padding-bottom: 50%;
 }
