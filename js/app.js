@@ -70,6 +70,13 @@ const request = (method, path) => {
     };
 };
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializa la aplicación cuando el DOM esté completamente cargado.
+    util.buka();
+    // Aquí puedes llamar a otras funciones iniciales necesarias para tu app.
+});
+
 const util = (() => {
 
     const opacity = (nama) => {
@@ -227,7 +234,13 @@ const util = (() => {
             }
         })();
     };
-
+    document.addEventListener("DOMContentLoaded", function() {
+        var lastItem = document.querySelector('#carousel-foto-satu .carousel-item:last-child');
+        if(lastItem) {
+            lastItem.parentNode.removeChild(lastItem);
+        }
+    });
+    
     const buka = async (button) => {
         button.disabled = true;
         document.querySelector('body').style.overflowY = 'scroll';
@@ -319,6 +332,8 @@ const progress = (() => {
         }
     });
 })();
+
+
 
 const audio = (() => {
     let audio = null;

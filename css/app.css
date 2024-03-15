@@ -560,3 +560,13 @@ footer {
 .invitacion{
   padding-bottom: 50%;
 }
+
+
+.invisible-slide {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
