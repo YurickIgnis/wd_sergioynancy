@@ -251,6 +251,9 @@ const util = (() => {
             document.getElementById('alertDiv').style.display = 'none';
         }
 
+        // Añade esta línea para asegurar que la página se desplace hacia arriba
+        window.scrollTo(0, 0);
+
         opacity('welcome');
         document.getElementById('tombol-musik').style.display = 'block';
         timer();
