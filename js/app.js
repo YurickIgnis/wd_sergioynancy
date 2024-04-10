@@ -456,11 +456,11 @@ const session = (() => {
                     comment.ucapan();
                 }
             })
-            .catch((err) => {
-                alert(`Terdapat kesalahan: ${err}`);
-                window.location.reload();
-                return;
-            });
+            // .catch((err) => {
+            //     alert(`Terdapat kesalahan: ${err}`);
+            //     window.location.reload();
+            //     return;
+            // });
     };
 
     const check = async () => {
